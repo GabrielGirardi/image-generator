@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap");
+:root {
+  --color-primary: #45434A;
+  --color-secondary: #B2A188;
+}
+
+.active {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=global.css.map */
