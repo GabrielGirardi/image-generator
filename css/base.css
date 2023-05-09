@@ -86,7 +86,6 @@ header .search-container-middle {
   display: flex;
   align-items: center;
   height: 100vh;
-  width: 1240px;
 }
 header .search-container-middle .container {
   flex-direction: column;
@@ -259,14 +258,14 @@ section .images-container .rotate-2 {
 .return-to-top:hover {
   cursor: pointer;
 }
-.return-to-top a {
+.return-to-top span {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 32px;
   height: 32px;
 }
-.return-to-top a img {
+.return-to-top span img {
   transform: rotate(180deg);
 }
 
