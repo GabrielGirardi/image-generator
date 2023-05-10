@@ -39,7 +39,7 @@ header {
   transition: all 0.4s;
   min-width: 100vh;
   min-height: 100vh;
-  background: url("https://pixabay.com/get/gf36ab8fd849a88a4a99225383e5af4f87089ed74cd0bb22af00c3df070de1bca7671334a25c60ed45ab2020c6f6e6ddd7f21cc2a56b6f1f33cf4d350ee3a4c1e_1280.jpg") center/cover no-repeat;
+  background: url("https://cdn.pixabay.com/photo/2018/08/23/07/35/thunderstorm-3625405_960_720.jpg") center/cover no-repeat;
 }
 header .search-container {
   display: flex;
