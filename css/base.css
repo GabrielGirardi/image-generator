@@ -39,7 +39,7 @@ header {
   transition: all 0.4s;
   min-width: 100vh;
   min-height: 100vh;
-  background: url("https://cdn.pixabay.com/photo/2018/08/23/07/35/thunderstorm-3625405_960_720.jpg") center/cover no-repeat;
+  background: url("https://cdn.pixabay.com/photo/2020/07/19/21/50/forest-5421362_960_720.jpg") center/cover no-repeat;
 }
 header .search-container {
   display: flex;
