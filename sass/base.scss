@@ -30,7 +30,7 @@ header {
     transition: all .4s;
     min-width: 100vh;
     min-height: 100vh;    
-    background: url('https://pixabay.com/get/gf36ab8fd849a88a4a99225383e5af4f87089ed74cd0bb22af00c3df070de1bca7671334a25c60ed45ab2020c6f6e6ddd7f21cc2a56b6f1f33cf4d350ee3a4c1e_1280.jpg') center/cover no-repeat;
+    background: url('../assets/bg.jpg') center/cover no-repeat;
     
     .search-container {
         display: flex;
@@ -164,14 +164,19 @@ header {
 
 
 section {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
-    background-color: blue;
-    background-image: radial-gradient(rgb(0, 0, 110) 2px, rgb(0, 0, 38) 0.55px);
-    background-size: 11px 11px;
+    background: url('../assets/bg-5.jpg');
     min-height: 100vh;
     border-top: 6px solid #000;
+
+    .bg {
+        background: #ffffff1b;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        width: 100%;
+    }
 
     .title-fotos {
         display: flex;
@@ -194,10 +199,6 @@ section {
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        background: #ffffff1b;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        width: 90%;
 
         figure {
             position: relative;
@@ -206,18 +207,19 @@ section {
                 width: 400px;
                 height: 300px;
                 margin: 20px;
-                border: 10px solid #fefae0;
-                border-bottom: 80px solid #fefae0;
-                transition-duration: 1s;
+                border: 10px solid #53b7ff;
+                border-bottom: 80px solid #53b7ff;
+                transition-duration: .6s;
                 object-fit: cover;
                 background: #000;
                 position: relative;
 
                 &:hover {
-                    border: 5px solid #fff;
+                    border: 5px solid #53b7ff;
                     -webkit-transform: scale(1.1);
                     -ms-transform: scale(1.1);
                     transform: scale(1.1);
+                    cursor: pointer;
 
                 }
             }

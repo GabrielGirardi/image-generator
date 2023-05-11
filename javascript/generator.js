@@ -3,10 +3,8 @@ let defaultSearch;
 
 // Requisição das imagens
 function getImages() {
-    if(defaultSearch == null){
-        defaultSearch = 'Universe';
-    }
-    let URL = "https://pixabay.com/api/?key="+API_KEY+"&q="+encodeURIComponent(defaultSearch)+"&lang=pt&min_width=1920&min_height=1080";
+
+    let URL = "https://pixabay.com/api/?key="+API_KEY+"&q="+encodeURIComponent(defaultSearch)+"&lang=pt&min_width=1000&min_height=1000";
     
     fetch(URL)
     .then(response => response.json())
@@ -21,13 +19,13 @@ function getImages() {
                 }
             });
         } else {
-            allImages.eq(i).attr('src', '');
+            error('Nenhum resultado encontrado', 'warning');
         }
     });
 }
 
 // Valida caso o usuário tentar pesquisar com o input vazio
-function emptyError(){
+function error(message, icon){
      const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
@@ -41,8 +39,8 @@ function emptyError(){
     })
         
     Toast.fire({
-        icon: 'error',
-            title: 'Você precisa digitar algo'
+        icon: icon,
+            title: message
     })
 }
 
@@ -54,34 +52,29 @@ function scroll(){
 }
 
 //Execuções
-$(document).ready(function(){
-    getImages(); //Inicialização Default
-    $('#search-bar').trigger('focus'); // Inicializa a página com o input ativo
 
-    // Função que executa a pesquisa do usuário a partir do botão
-    $('#btn').on('click', function(){
-        if($('#search-bar').val() != ''){
-            defaultSearch = $('#search-bar').val();
+$(document).ready(function(){
+    $('#btn').on('click', () => {
+        const inputVal = $('#search-bar').val().trim();
+
+        if (inputVal) {
+            defaultSearch = inputVal;
             sessionStorage.setItem('pesquisa', defaultSearch);
+            $('section').addClass('view');
             getImages();
-            scroll()
+            scroll();
         } else {
-            emptyError();
+            error('Você precisa digitar algo', 'error');
         }
     });
-    // Função que executa a pesquisa do usuário a partir da tecla enter
-    $('#search-bar').on('keyup', function(e){ 
-        if(e.keyCode === 13){
-            if($('#search-bar').val() != ''){
-                defaultSearch = $('#search-bar').val();
-                sessionStorage.setItem('pesquisa', defaultSearch);
-                getImages();
-                scroll()
-            } else {
-                emptyError();
-            }
+
+    $('#search-bar').on('keyup', (e) => {
+        if (e.type === 'click' || e.keyCode === 13) {
+           $('#btn').trigger('click');
         }
     });
+
+    //Sugestões de pesquisa
 
     $('.filter-list li').on('click', function(){
         defaultSearch = $(this).text();
@@ -91,31 +84,58 @@ $(document).ready(function(){
           console.log($(this));
     });
 
+    // filtros
+
     $('.filters').on('click', async function(){
-    const inputOptions = new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            '#ff0000': 'Red',
-            '#00ff00': 'Green',
-            '#0000ff': 'Blue'
-          })
-        }, 1000)
-      })
-      
-      const { value: color } = await Swal.fire({
-        title: 'Selecione',
-        input: 'radio',
-        inputOptions: inputOptions,
-        inputValidator: (value) => {
-          if (!value) {
-            return 'You need to choose something!'
-          }
+        const inputOptions = new Promise((resolve) => {
+            setTimeout(() => {
+            resolve({
+                '#ff0000': 'Red',
+                '#00ff00': 'Green',
+                '#0000ff': 'Blue'
+            })
+            }, 1000)
+        })
+        
+        const { value: filter } = await Swal.fire({
+            title: 'Selecione',
+            input: 'radio',
+            inputOptions: inputOptions,
+            inputValidator: (value) => {
+            if (!value) {
+                return 'You need to choose something!'
+            }
+            }
+        })
+        
+        if (filter) {
+            Swal.fire({ html: `You selected: ${filter}` })
         }
-      })
-      
-      if (color) {
-        Swal.fire({ html: `You selected: ${color}` })
-      }
+    });
+
+
+    $('section figure').on('click', function(){
+        const imgDownload = $(this).find('img').attr('src');
+
+        Swal.fire({
+            title: '<strong>Informações Gerais</strong>',
+            icon: 'info',
+            html:
+              'Tags: <br/>' +
+              'Tipo: <br/>' +
+              'Curtidas: <br/>' +
+              'Downloads: <br/>' +
+              'Visualizações: <br/>',
+            showCloseButton: true,
+            showCancelButton: true,
+            focusConfirm: false,
+            confirmButtonText:
+              `<i class="fa fa-thumbs-up"></i> <a href="${imgDownload}" download>Download!</a>`,
+            confirmButtonAriaLabel: 'Thumbs up, great!',
+            cancelButtonText:
+              '<i class="fa fa-thumbs-down"></i> Fechar',
+            cancelButtonAriaLabel: 'Thumbs down'
+          })
     });
 });
 

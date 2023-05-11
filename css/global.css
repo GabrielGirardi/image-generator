@@ -9,4 +9,8 @@
   opacity: 1;
 }
 
+.view {
+  display: flex;
+}
+
 /*# sourceMappingURL=global.css.map */
