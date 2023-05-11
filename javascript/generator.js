@@ -79,6 +79,7 @@ $(document).ready(function(){
     $('.filter-list li').on('click', function(){
         defaultSearch = $(this).text();
         sessionStorage.setItem('pesquisa', defaultSearch);
+        $('section').addClass('view');
         getImages();
         scroll()
           console.log($(this));
