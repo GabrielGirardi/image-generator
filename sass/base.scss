@@ -30,7 +30,7 @@ header {
     transition: all .4s;
     min-width: 100vh;
     min-height: 100vh;    
-    background: url('../assets/bg.jpg') center/cover no-repeat;
+    background: url('../assets/bg-09.jpg') center/cover no-repeat;
     
     .search-container {
         display: flex;
@@ -38,7 +38,7 @@ header {
         justify-content: center;
         height: 30px;
         width: 100%;
-        background: #ffffff74;
+        background: #ff000037;
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
 
@@ -47,9 +47,14 @@ header {
             justify-content: center;
             align-items: center;
             height: 50px;
+
             a {
                 display: flex;
                 margin: 0 8px;
+
+                img {
+                    filter: invert(1);
+                }
             }
         }
         
@@ -90,24 +95,24 @@ header {
             gap: 20px;
 
             h1 {
-                font-size: 60px;
+                font-size: 80px;
                 text-align: center;
-                font-family: 'DM Serif Display', serif;
-                font-weight: thin;
+                font-family: 'Amatic SC', cursive;
+                font-weight: 700;
             }
 
             h2 {
                 font-size: 40px;
                 text-align: center;
-                font-family: 'DM Serif Display', serif;
+                font-family: 'Amatic SC', cursive;
                 font-weight: 400;
             }
 
             h3 {
                 font-size: 32px;
                 text-align: center;
-                font-family: 'Poppins', serif;
-                font-weight: 400;
+                font-family: 'Amatic SC', cursive;
+                font-weight: 700;
             }
 
             p {
@@ -124,6 +129,7 @@ header {
             justify-content: center;
 
             input {
+                font-family: 'Amatic SC', cursive;
                 border: none;
                 border-bottom: 2px solid #fff;
                 height: 30px;
@@ -149,13 +155,16 @@ header {
                 border-radius: 50%;
                 backdrop-filter: blur(5px);
                 background-color: #ffffff2e;
+                transition: all .3s;
                 
                 &:hover {
                     cursor: pointer;
+                    background-color: #ffffff44;
                 }
 
                 img {
                     transform: rotate(-90deg);
+                    filter: invert(1);
                 }
             }
         }
@@ -167,7 +176,7 @@ section {
     display: none;
     flex-direction: column;
     align-items: center;
-    background: url('../assets/bg-5.jpg');
+    background: #000;
     min-height: 100vh;
     border-top: 6px solid #000;
 
@@ -176,6 +185,29 @@ section {
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
         width: 100%;
+
+        ul {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 10px;
+
+            li {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 50px;
+                width: 100px;
+                border-radius: 13px;
+                border: 1px solid #fff;
+                transition: all .3s;
+
+                &:hover {
+                    cursor: pointer;
+                    background: #ffffff44;
+                }
+            }
+        }
     }
 
     .title-fotos {
@@ -185,10 +217,10 @@ section {
         flex-direction: column;
 
         h3 {
-            font-family: 'DM Serif Display';
+            font-family: 'Amatic SC', cursive;
             color: #fff;
             margin: 20px auto;
-            font-size: 16px;
+            font-size: 32px;
             text-transform: uppercase;
             text-align: center;
         }
@@ -207,15 +239,16 @@ section {
                 width: 400px;
                 height: 300px;
                 margin: 20px;
-                border: 10px solid #53b7ff;
-                border-bottom: 80px solid #53b7ff;
+                border: 10px solid #fc2451;
+                border-radius: 8px 0 8px 0;
+                border-bottom: 80px solid #fc2451;
                 transition-duration: .6s;
                 object-fit: cover;
                 background: #000;
                 position: relative;
 
                 &:hover {
-                    border: 5px solid #53b7ff;
+                    border: 5px solid #fc2451;
                     -webkit-transform: scale(1.1);
                     -ms-transform: scale(1.1);
                     transform: scale(1.1);

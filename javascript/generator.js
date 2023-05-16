@@ -1,6 +1,32 @@
 const API_KEY = '36153190-28613f82eb9d28eee698ede25';
 let defaultSearch;
 
+function viewInfo(views, downloads, likes, type, tags){
+    $('section figure').on('click', function(){
+        const imgDownload = $(this).find('img').attr('src');
+
+        Swal.fire({
+            title: '<strong>Informações Gerais</strong>',
+            icon: 'info',
+            html:
+              `Tags: ${tags} <br/>` +
+              `Tipo: ${type} <br/>` +
+              `Curtidas: ${likes}<br/>` +
+              `Downloads:${downloads} <br/>` +
+              `Visualizações: ${views} <br/>`,
+            showCloseButton: true,
+            showCancelButton: true,
+            focusConfirm: false,
+            confirmButtonText:
+              `<i class="fa fa-thumbs-up"></i> <a href="${imgDownload}" download>Download!</a>`,
+            confirmButtonAriaLabel: 'Thumbs up, great!',
+            cancelButtonText:
+              '<i class="fa fa-thumbs-down"></i> Fechar',
+            cancelButtonAriaLabel: 'Thumbs down'
+          })
+    });
+}
+
 // Requisição das imagens
 function getImages() {
 
@@ -11,18 +37,37 @@ function getImages() {
     .then(data => { 
         let allImages = $('section img');
         let view = $('section figcaption')
+
+        $('.wave').remove();
+
         if (parseInt(data.totalHits) > 0) {
             $.each(data.hits, function(i, hit) {
-                if(i < allImages.length){
-                    allImages.eq(i).attr('src', hit.largeImageURL);  
-                    view.eq(i).text(hit.tags);  
+                let currentImage = null;
+
+                for (let i = 0; i < data.hits.length; i++) {
+                    let hit = data.hits[i];
+                    let blockImageBox = `<figure class="wave"><img src="${hit.largeImageURL}" alt="${hit.tags}" onerror="this.parentNode.parentNode.removeChild(this.parentNode)"></img></figure>`;
+
+                    $('.images-container').append(blockImageBox);
+                    
+                    if (hit.largeImageURL ) {
+                        allImages.eq(i).attr('src', hit.largeImageURL);  
+                        view.eq(i).text(hit.tags);  
+                    }
                 }
+
+                $('.images-container figure').on('click', function() {
+                    currentImage = hit;
+                    viewInfo(currentImage.views, currentImage.downloads, currentImage.likes, currentImage.type, currentImage.tags);
+                });
+                
             });
         } else {
             error('Nenhum resultado encontrado', 'warning');
+            $('section').removeClass('view');
         }
     });
-}
+} 
 
 // Valida caso o usuário tentar pesquisar com o input vazio
 function error(message, icon){
@@ -82,61 +127,6 @@ $(document).ready(function(){
         $('section').addClass('view');
         getImages();
         scroll()
-          console.log($(this));
-    });
-
-    // filtros
-
-    $('.filters').on('click', async function(){
-        const inputOptions = new Promise((resolve) => {
-            setTimeout(() => {
-            resolve({
-                '#ff0000': 'Red',
-                '#00ff00': 'Green',
-                '#0000ff': 'Blue'
-            })
-            }, 1000)
-        })
-        
-        const { value: filter } = await Swal.fire({
-            title: 'Selecione',
-            input: 'radio',
-            inputOptions: inputOptions,
-            inputValidator: (value) => {
-            if (!value) {
-                return 'You need to choose something!'
-            }
-            }
-        })
-        
-        if (filter) {
-            Swal.fire({ html: `You selected: ${filter}` })
-        }
-    });
-
-
-    $('section figure').on('click', function(){
-        const imgDownload = $(this).find('img').attr('src');
-
-        Swal.fire({
-            title: '<strong>Informações Gerais</strong>',
-            icon: 'info',
-            html:
-              'Tags: <br/>' +
-              'Tipo: <br/>' +
-              'Curtidas: <br/>' +
-              'Downloads: <br/>' +
-              'Visualizações: <br/>',
-            showCloseButton: true,
-            showCancelButton: true,
-            focusConfirm: false,
-            confirmButtonText:
-              `<i class="fa fa-thumbs-up"></i> <a href="${imgDownload}" download>Download!</a>`,
-            confirmButtonAriaLabel: 'Thumbs up, great!',
-            cancelButtonText:
-              '<i class="fa fa-thumbs-down"></i> Fechar',
-            cancelButtonAriaLabel: 'Thumbs down'
-          })
     });
 });
 
