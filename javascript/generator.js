@@ -46,7 +46,7 @@ function getImages() {
 
                 for (let i = 0; i < data.hits.length; i++) {
                     let hit = data.hits[i];
-                    let blockImageBox = `<figure class="wave"><img src="${hit.largeImageURL}" alt="${hit.tags}" onerror="this.parentNode.parentNode.removeChild(this.parentNode)"></img></figure>`;
+                    let blockImageBox = `<figure class="wave"><img src="${hit.largeImageURL}" alt="${hit.tags}" title="Clique aqui" onerror="this.parentNode.parentNode.removeChild(this.parentNode)"></img></figure>`;
 
                     $('.images-container').append(blockImageBox);
                     

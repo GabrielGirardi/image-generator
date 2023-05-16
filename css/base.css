@@ -14,6 +14,24 @@
   display: flex;
 }
 
+@keyframes animate {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  50.1% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -46,6 +64,12 @@ header {
   min-height: 100vh;
   background: url("../assets/bg-09.jpg") center/cover no-repeat;
 }
+@media (max-width: 768px) {
+  header {
+    min-width: 100%;
+    min-height: 100%;
+  }
+}
 header .search-container {
   display: flex;
   align-items: center;
@@ -76,11 +100,22 @@ header .filter-options {
   height: 50px;
   width: 100%;
 }
+@media (max-width: 768px) {
+  header .filter-options {
+    height: 80px;
+  }
+}
 header .filter-options .filter-list {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
+}
+@media (max-width: 768px) {
+  header .filter-options .filter-list {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
 }
 header .filter-options .filter-list li {
   cursor: pointer;
@@ -94,6 +129,11 @@ header .search-container-middle {
   display: flex;
   align-items: center;
   height: 100vh;
+}
+@media (max-width: 768px) {
+  header .search-container-middle {
+    height: 88vh;
+  }
 }
 header .search-container-middle .container {
   flex-direction: column;
@@ -178,11 +218,23 @@ section .bg {
   -webkit-backdrop-filter: blur(5px);
   width: 100%;
 }
+@media (max-width: 768px) {
+  section .bg {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
 section .bg ul {
   display: flex;
   justify-content: center;
   gap: 12px;
   margin-top: 10px;
+}
+@media (max-width: 768px) {
+  section .bg ul {
+    padding: 6px 10px;
+  }
 }
 section .bg ul li {
   display: flex;
@@ -193,6 +245,12 @@ section .bg ul li {
   border-radius: 13px;
   border: 1px solid #fff;
   transition: all 0.3s;
+}
+@media (max-width: 768px) {
+  section .bg ul li {
+    font-size: 13px;
+    width: 80px;
+  }
 }
 section .bg ul li:hover {
   cursor: pointer;
@@ -217,9 +275,30 @@ section .images-container {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  gap: 12px;
+}
+@media (max-width: 768px) {
+  section .images-container {
+    width: 98%;
+  }
 }
 section .images-container figure {
   position: relative;
+  background: rgba(252, 36, 81, 0.6509803922);
+  box-sizing: border-box;
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgb(90, 23, 23);
+  border: 2px solid #fc2451;
+  color: white;
+  padding: 12px;
+}
+section .images-container figure:before {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 1px;
+  background: #50dfdb;
+  animation: animate 4s linear infinite;
 }
 section .images-container figure img {
   width: 400px;
@@ -232,6 +311,11 @@ section .images-container figure img {
   object-fit: cover;
   background: #000;
   position: relative;
+}
+@media (max-width: 768px) {
+  section .images-container figure img {
+    width: 300px;
+  }
 }
 section .images-container figure img:hover {
   border: 5px solid #fc2451;

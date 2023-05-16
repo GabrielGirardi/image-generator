@@ -31,6 +31,11 @@ header {
     min-width: 100vh;
     min-height: 100vh;    
     background: url('../assets/bg-09.jpg') center/cover no-repeat;
+
+    @media (max-width: 768px){
+        min-width: 100%;
+        min-height: 100%;
+    }
     
     .search-container {
         display: flex;
@@ -66,12 +71,21 @@ header {
         align-items: center;
         height: 50px;
         width: 100%;
+        
+        @media (max-width: 768px){
+            height: 80px;
+        }
 
         .filter-list {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 20px;
+
+            @media (max-width: 768px){
+                flex-wrap: wrap;
+                gap: 15px;
+            }
 
             li {
                 cursor: pointer;
@@ -89,6 +103,10 @@ header {
         display: flex;
         align-items: center;
         height: 100vh;
+
+        @media (max-width: 768px){
+            height: 88vh;
+        }
 
         .container {
             flex-direction: column;
@@ -186,11 +204,20 @@ section {
         -webkit-backdrop-filter: blur(5px);
         width: 100%;
 
+        @media (max-width: 768px){
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
         ul {
             display: flex;
             justify-content: center;
             gap: 12px;
             margin-top: 10px;
+            @media (max-width: 768px){
+                padding: 6px 10px;
+            }
 
             li {
                 display: flex;
@@ -201,6 +228,11 @@ section {
                 border-radius: 13px;
                 border: 1px solid #fff;
                 transition: all .3s;
+
+                @media (max-width: 768px){
+                    font-size: 13px;
+                    width: 80px;
+                }
 
                 &:hover {
                     cursor: pointer;
@@ -231,9 +263,29 @@ section {
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
+        gap: 12px;
+        @media (max-width: 768px){
+            width: 98%;
+        }
 
         figure {
             position: relative;
+            background: #fc2451a6;
+            box-sizing: border-box;
+            overflow: hidden;
+            box-shadow: 0 5px 10px rgb(90, 23, 23);
+            border: 2px solid #fc2451;
+            color: white;
+            padding: 12px;
+
+            &:before {
+                content: '';
+                position: absolute;
+                width: 90%;
+                height: 1px;
+                background: #50dfdb;
+                animation: animate 4s linear infinite;
+            }
 
             img {
                 width: 400px;
@@ -246,6 +298,11 @@ section {
                 object-fit: cover;
                 background: #000;
                 position: relative;
+
+                @media (max-width: 768px){
+                    width: 300px;
+                }
+
 
                 &:hover {
                     border: 5px solid #fc2451;
