@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
 :root {
   --color-primary: #45434A;
   --color-secondary: #B2A188;
@@ -43,7 +44,7 @@ header {
   transition: all 0.4s;
   min-width: 100vh;
   min-height: 100vh;
-  background: url("../assets/bg.jpg") center/cover no-repeat;
+  background: url("../assets/bg-09.jpg") center/cover no-repeat;
 }
 header .search-container {
   display: flex;
@@ -51,7 +52,7 @@ header .search-container {
   justify-content: center;
   height: 30px;
   width: 100%;
-  background: rgba(255, 255, 255, 0.4549019608);
+  background: rgba(255, 0, 0, 0.2156862745);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 }
@@ -64,6 +65,9 @@ header .search-container .social {
 header .search-container .social a {
   display: flex;
   margin: 0 8px;
+}
+header .search-container .social a img {
+  filter: invert(1);
 }
 header .filter-options {
   display: flex;
@@ -96,22 +100,22 @@ header .search-container-middle .container {
   gap: 20px;
 }
 header .search-container-middle .container h1 {
-  font-size: 60px;
+  font-size: 80px;
   text-align: center;
-  font-family: "DM Serif Display", serif;
-  font-weight: thin;
+  font-family: "Amatic SC", cursive;
+  font-weight: 700;
 }
 header .search-container-middle .container h2 {
   font-size: 40px;
   text-align: center;
-  font-family: "DM Serif Display", serif;
+  font-family: "Amatic SC", cursive;
   font-weight: 400;
 }
 header .search-container-middle .container h3 {
   font-size: 32px;
   text-align: center;
-  font-family: "Poppins", serif;
-  font-weight: 400;
+  font-family: "Amatic SC", cursive;
+  font-weight: 700;
 }
 header .search-container-middle .container p {
   font-size: 14px;
@@ -125,6 +129,7 @@ header .search-container-middle .search-area {
   justify-content: center;
 }
 header .search-container-middle .search-area input {
+  font-family: "Amatic SC", cursive;
   border: none;
   border-bottom: 2px solid #fff;
   height: 30px;
@@ -148,19 +153,22 @@ header .search-container-middle .search-area button {
   border-radius: 50%;
   backdrop-filter: blur(5px);
   background-color: rgba(255, 255, 255, 0.1803921569);
+  transition: all 0.3s;
 }
 header .search-container-middle .search-area button:hover {
   cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.2666666667);
 }
 header .search-container-middle .search-area button img {
   transform: rotate(-90deg);
+  filter: invert(1);
 }
 
 section {
   display: none;
   flex-direction: column;
   align-items: center;
-  background: url("../assets/bg-5.jpg");
+  background: #000;
   min-height: 100vh;
   border-top: 6px solid #000;
 }
@@ -170,6 +178,26 @@ section .bg {
   -webkit-backdrop-filter: blur(5px);
   width: 100%;
 }
+section .bg ul {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+section .bg ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100px;
+  border-radius: 13px;
+  border: 1px solid #fff;
+  transition: all 0.3s;
+}
+section .bg ul li:hover {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2666666667);
+}
 section .title-fotos {
   display: flex;
   justify-content: center;
@@ -177,10 +205,10 @@ section .title-fotos {
   flex-direction: column;
 }
 section .title-fotos h3 {
-  font-family: "DM Serif Display";
+  font-family: "Amatic SC", cursive;
   color: #fff;
   margin: 20px auto;
-  font-size: 16px;
+  font-size: 32px;
   text-transform: uppercase;
   text-align: center;
 }
@@ -197,15 +225,16 @@ section .images-container figure img {
   width: 400px;
   height: 300px;
   margin: 20px;
-  border: 10px solid #53b7ff;
-  border-bottom: 80px solid #53b7ff;
+  border: 10px solid #fc2451;
+  border-radius: 8px 0 8px 0;
+  border-bottom: 80px solid #fc2451;
   transition-duration: 0.6s;
   object-fit: cover;
   background: #000;
   position: relative;
 }
 section .images-container figure img:hover {
-  border: 5px solid #53b7ff;
+  border: 5px solid #fc2451;
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1);
