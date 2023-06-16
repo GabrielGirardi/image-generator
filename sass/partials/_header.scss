@@ -1,0 +1,33 @@
+@import '../base.scss';
+
+header {
+  scroll-behavior: smooth;
+  transition: all .4s;
+  min-width: 100vh;
+  min-height: 50px;
+
+  @media (max-width: 768px) {
+    min-width: 100%;
+    min-height: 50px;
+  }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 100%;
+
+    .social {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+
+      a {
+        display: flex;
+        margin: 0 8px;
+      }
+    }
+  }
+}

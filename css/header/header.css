@@ -116,4 +116,37 @@ body {
   margin-left: auto;
   margin-right: auto; }
 
-/*# sourceMappingURL=base.css.map */
+header {
+  scroll-behavior: smooth;
+  transition: all .4s;
+  min-width: 100vh;
+  min-height: 50px; }
+  @media (max-width: 768px) {
+    header {
+      min-width: 100%;
+      min-height: 50px; } }
+  header .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 100%; }
+    header .header-top .social {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px; }
+      header .header-top .social a {
+        display: flex;
+        margin: 0 8px; }
+
+.header-top {
+  background: var(--color-primary); }
+  .header-top div.container {
+    width: 100%;
+    justify-content: space-around; }
+    .header-top div.container .wishlist a {
+      font-size: 14px;
+      color: var(--color-black); }
+
+/*# sourceMappingURL=header.css.map */
