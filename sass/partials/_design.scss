@@ -1,38 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
-.flex, .view {
-  display: flex; }
-
-.none {
-  display: none; }
-
-.active {
-  opacity: 1; }
-
-.align-center,
-.center {
-  align-items: center; }
-
-.align-start {
-  align-items: flex-start; }
-
-.align-end {
-  align-items: flex-end; }
-
-.justify-center {
-  justify-content: center; }
-
-.justify-between {
-  justify-content: space-between; }
-
-.justify-around {
-  justify-content: space-around; }
-
-.centralize {
-  display: flex;
-  justify-content: center;
-  align-items: center; }
+// Use this file to set design system variables
 
 :root {
   --color-primary: #F6F6F6;
@@ -40,10 +6,15 @@
   --color-tertiary: #333333;
   --color-quaternary: #990100;
   --color-quinary: #B90504;
+
+  //P&B
   --color-black: #000000;
   --color-gray: 808080FF;
   --color-lightgray: D3D3D3FF;
   --color-white: #ffffff;
+
+  // grayscale
+
   --color-gray-50: #fafafa;
   --color-gray-100: #f3f3f3;
   --color-gray-200: #e8e8e8;
@@ -54,18 +25,27 @@
   --color-gray-700: #616161;
   --color-gray-800: #424242;
   --color-gray-900: #212121;
+
+  // Green
+
   --color-green-50: #00f050;
   --color-green-100: #00e100;
   --color-green-200: #00d200;
   --color-green-300: #00c300;
   --color-green-400: #00b400;
   --color-green-500: #00a500;
+
+  // Red
+
   --color-red-100: #ff0000;
   --color-red-200: #ef0000;
   --color-red-300: #df0000;
   --color-red-400: #cf0000;
   --color-red-500: #bf0000;
   --color-red-600: #af0000;
+
+  // Yellow
+
   --color-yellow-50: #ffff00;
   --color-yellow-100: #fff000;
   --color-yellow-200: #efff00;
@@ -73,47 +53,23 @@
   --color-yellow-400: #cfff00;
   --color-yellow-500: #bfff00;
   --color-yellow-600: #afff00;
+
+
+  // Success
+
   --color-success-100: var(--color-green-100);
   --color-success-300: var(--color-green-300);
   --color-success-500: var(--color-green-500);
+
+  // Warning
+
   --color-warning-100: var(--color-yellow-100);
   --color-warning-300: var(--color-yellow-300);
   --color-warning-500: var(--color-yellow-500);
+
+  // Error
+
   --color-error-100: var(--color-red-100);
   --color-error-300: var(--color-red-300);
-  --color-error-500: var(--color-red-500); }
-
-@keyframes animate {
-  0% {
-    transform: scaleX(0);
-    transform-origin: left; }
-  50% {
-    transform: scaleX(1);
-    transform-origin: left; }
-  50.1% {
-    transform: scaleX(1);
-    transform-origin: right; }
-  100% {
-    transform: scaleX(0);
-    transform-origin: right; } }
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0; }
-
-a, li {
-  text-decoration: none;
-  list-style: none; }
-
-body {
-  font-family: 'poppins', sans-serif;
-  color: #fff; }
-
-.container {
-  display: flex;
-  justify-content: center;
-  max-width: 1240px;
-  margin-left: auto;
-  margin-right: auto; }
-
-/*# sourceMappingURL=base.css.map */
+  --color-error-500: var(--color-red-500);
+}

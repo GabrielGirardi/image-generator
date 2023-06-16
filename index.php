@@ -10,15 +10,15 @@
     <script src="./javascript/base.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="./css/landing-page.css">
     <link rel="stylesheet" href="sweetalert2.min.css">
-    <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>Gerador de Imagens</title>
 </head>
 <body>
     <header id="header">
         <div class="search-container">
-            <div class="container">
+            <div class="container">`
                 <div class="social">
                     <a href="https://github.com/GabrielGirardi" target="_blank">
                         <img src="./assets/icons/github.svg" alt="" width="20px" height="20px"/>
@@ -59,7 +59,6 @@
         </div>
     </header>
 
-    
     <section class="">
         <div class="bg">
             <div>
