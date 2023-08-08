@@ -1,43 +1,39 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
-.flex, .view {
-  display: flex; }
+@keyframes chroma {
+  0% {
+    filter: hue-rotate(180deg);
+  }
+  25% {
+    filter: hue-rotate(360deg);
+  }
+  50% {
+    filter: hue-rotate(-90deg);
+  }
+  75% {
+    filter: hue-rotate(-180deg);
+  }
+  100% {
+    filter: hue-rotate(-360deg);
+  }
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-.none {
-  display: none; }
-
-.active {
-  opacity: 1; }
-
-.align-center,
-.center {
-  align-items: center; }
-
-.align-start {
-  align-items: flex-start; }
-
-.align-end {
-  align-items: flex-end; }
-
-.justify-center {
-  justify-content: center; }
-
-.justify-between {
-  justify-content: space-between; }
-
-.justify-around {
-  justify-content: space-around; }
-
-.centralize {
-  display: flex;
-  justify-content: center;
-  align-items: center; }
+body {
+  font-family: "poppins", sans-serif;
+}
+body a,
+body li {
+  text-decoration: none;
+  list-style: none;
+}
 
 :root {
-  --color-primary: #F6F6F6;
-  --color-secondary: #E8E8E8;
-  --color-tertiary: #333333;
+  --color-primary: #3498db;
+  --color-secondary: #e74c3c;
+  --color-tertiary: #f2f2f2;
   --color-quaternary: #990100;
   --color-quinary: #B90504;
   --color-black: #000000;
@@ -81,39 +77,218 @@
   --color-warning-500: var(--color-yellow-500);
   --color-error-100: var(--color-red-100);
   --color-error-300: var(--color-red-300);
-  --color-error-500: var(--color-red-500); }
+  --color-error-500: var(--color-red-500);
+}
 
-@keyframes animate {
-  0% {
-    transform: scaleX(0);
-    transform-origin: left; }
-  50% {
-    transform: scaleX(1);
-    transform-origin: left; }
-  50.1% {
-    transform: scaleX(1);
-    transform-origin: right; }
-  100% {
-    transform: scaleX(0);
-    transform-origin: right; } }
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0; }
+.flex, .view {
+  display: flex;
+}
 
-a, li {
-  text-decoration: none;
-  list-style: none; }
+.none {
+  display: none;
+}
 
-body {
-  font-family: 'poppins', sans-serif;
-  color: #fff; }
+.active {
+  opacity: 1;
+}
 
-.container {
+.align-center,
+.center {
+  align-items: center;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.centralize {
   display: flex;
   justify-content: center;
-  max-width: 1240px;
-  margin-left: auto;
-  margin-right: auto; }
+  align-items: center;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background: var(--color-primary);
+  color: white;
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+}
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    position: relative;
+    gap: 12px;
+  }
+}
+@media (max-width: 768px) {
+  header nav.navigation {
+    order: 3;
+  }
+}
+header nav.navigation ul.nav-options {
+  display: flex;
+  gap: 10px;
+}
+header nav.navigation ul.nav-options li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+header nav.navigation ul.nav-options li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s;
+  border-radius: 50%;
+}
+header nav.navigation ul.nav-options li a:hover {
+  animation: chroma infinite 3s ease-in-out;
+}
+header nav.navigation ul.nav-options li a img {
+  border-radius: 50%;
+  background: #38c6ff;
+  padding: 4px;
+}
+header .logo h1 {
+  gap: 6px;
+}
+header .logo h1 span {
+  font-size: 24px;
+}
+header .search-container #searchInput {
+  width: 200px;
+  height: 30px;
+  padding: 6px;
+  border: none;
+  border-radius: 6px 0 0 6px;
+  text-transform: capitalize;
+  color: var(--color-gray-600);
+}
+header .search-container #searchInput:focus {
+  outline: none;
+}
+header .search-container #searchButton {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  background: #38c6ff;
+}
+
+footer {
+  background-color: var(--color-primary);
+  color: white;
+  text-align: center;
+  padding: 12px;
+}
+
+body {
+  background: var(--color-tertiary);
+}
+
+main {
+  margin-top: 50px;
+  padding: 24px;
+}
+main section {
+  margin-bottom: 24px;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+main section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+main section .results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+main section .result-item {
+  background: black;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+main section .result-item img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+main section .result-item:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+main section.filters .filters-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+main section.filters .filters-list .filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: fit-content;
+  height: 32px;
+  padding: 8px;
+  background: var(--color-gray-100);
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+main section.filters .filters-list .filter:hover {
+  cursor: pointer;
+  background: var(--color-gray-200);
+}
+main section.category ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+main section.category ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: fit-content;
+  height: 32px;
+  padding: 8px;
+  background: var(--color-gray-100);
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+main section.category ul li:hover {
+  cursor: pointer;
+  background: var(--color-gray-200);
+}
 
 /*# sourceMappingURL=base.css.map */

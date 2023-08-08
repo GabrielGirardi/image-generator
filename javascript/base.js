@@ -1,13 +1,29 @@
-$(document).ready(function(){
-    setTimeout(function(){
-        $('header').addClass('active');
-        $('#search-bar').trigger('focus'); 
-    }, 300);
+$(document).ready(function() {
+    let suggestImages = $('.suggest.results .result-item ').find('img');
 
-    $("#back-to-top").on('click', function(){
-        $('html, body').animate({
-            scrollTop: $("#header").offset().top
-          }, 1000); 
+    $('.suggest.results .result-item').on('click', function () {
+        let image = $(this).find('img').attr('src');
+
+        Swal.fire({
+            title: '<strong>Informações</strong>',
+            html: `<div><img src="${image}" alt="Wallpaper" width="600" height="auto"/></div>`,
+            with: 400,
+            showCloseButton: true,
+            showCancelButton: true,
+            focusConfirm: false,
+            confirmButtonText: 'Baixar',
+            cancelButtonText: 'Fechar',
+        }).then((result) => { 
+            if (result.isConfirmed) {
+                window.open(image);
+            }
+        });
     });
 });
+
+
+
+
+
+  
 

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./javascript/generator.js"></script>
+    <script src="./javascript/time.js"></script>
+    <script src="./javascript/base.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="shortcut icon" href="./assets/logo.ico" type="image/x-icon">
+    <title>Wall GGenerator</title>
+</head>
+<body>
+    <header class="flex justify-between center">
+      <nav class="navigation">
+          <ul class="nav-options flex center">
+              <li class="n-option">
+                <a href="#">
+                  <img src="./assets/icons/home.svg" alt="Voltar para a home" title="Voltar para a home" width="32" height="32"/>
+                </a>
+              </li>
+              <li class="n-option">
+                <a href="#">
+                  <img src="./assets/icons/files.svg" alt="Arquivos" title="Arquivos" width="32" height="32"/>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="./assets/icons/heart.svg" alt="Favoritos" title="Favoritos" width="32" height="32"/>
+                </a>
+              </li>
+          </ul>
+      </nav>
+      <div class="logo flex center justify-center">
+        <h1 class="flex center justify-center">
+          <img src="./assets/default/logo-site.svg" alt="Logo GGenerator" width="46" height="46"/>
+          <span>WGGenerator</span>
+        </h1>
+      </div>
+      <div class="search-container flex center justify-center">
+        <input type="text" id="searchInput" placeholder="Search wallpapers">
+        <button id="searchButton">
+          <img src="./assets/icons/search.svg" alt="Pesquisar" title="Pesquisar" width="24" height="24"/>
+        </button>
+      </div>
+    </header>
+      
+    <main>
+      <section class="suggest results">
+        <h2>Sugestões</h2>
+        <div class="results-grid">
+          <div class="result-item">
+            <img src="./assets/wallpapers/bg-1.jpg" alt="Wallpaper 1"/>
+          </div>
+          <div class="result-item">
+            <img src="./assets/wallpapers/bg-2.jpg" alt="Wallpaper 2"/>
+          </div>
+          <div class="result-item">
+            <img src="./assets/wallpapers/bg-3.jpg" alt="Wallpaper 3"/>
+          </div>
+          <div class="result-item">
+            <img src="./assets/wallpapers/bg-4.jpg" alt="Wallpaper 3"/>
+          </div>
+          <div class="result-item">
+            <img src="./assets/wallpapers/bg-5.jpg" alt="Wallpaper 3"/>
+          </div>
+          <div class="result-item">
+            <img src="./assets/wallpapers/bg-6.jpg" alt="Wallpaper 3"/>
+          </div>
+          <div class="result-item">
+            <img src="./assets/wallpapers/bg-7.jpg" alt="Wallpaper 3"/>
+          </div>
+          <div class="result-item">
+            <img src="./assets/wallpapers/bg-8.jpg" alt="Wallpaper 3"/>
+          </div>
+          <div class="result-item">
+            <img src="./assets/wallpapers/bg-9.png" alt="Wallpaper 3"/>
+          </div>
+          <div class="result-item">
+            <img src="./assets/wallpapers/bg-10.png" alt="Wallpaper 3"/>
+          </div>
+        </div>
+      </section>
+
+      <section class="filters">
+        <h2>Filtros</h2>
+        <ul class="filters-list">
+          <li class="filter">Dispositivo</li>
+          <li class="filter">Tamanho</li>
+          <li class="filter">Escolhas dos editores</li>
+          <li class="filter">Tipo</li>
+          <li class="filter">Cor</li>
+          <li class="filter">Permitir conteúdo explícito</li>
+      </section>
+      
+      <section class="category">
+        <h2>Explore por categorias</h2>
+        <ul>
+          <li><span>Carros</span></li>
+          <li><span>Universo</span></li>
+          <li><span>Paisagem</span></li>
+          <li><span>Mar</span></li>
+          <li><span>Moto</span></li>
+          <li><span>Cachorro</span></li>
+          <li><span>Naruto</span></li>
+          <li><span>Anime</span></li>
+        </ul>
+      </section>
+      
+      <section class="results">
+        <h2>Resultados da pesquisa</h2>
+        <div class="results-grid">
+          <div class="result-item">
+            <img src="example-image-1.jpg" alt="Wallpaper 1">
+          </div>
+          <div class="result-item">
+            <img src="example-image-2.jpg" alt="Wallpaper 2">
+          </div>
+          <div class="result-item">
+            <img src="example-image-3.jpg" alt="Wallpaper 3">
+          </div>
+        </div>
+      </section>
+    </main>
+      
+    <footer>
+      <p>&copy; 2023 Wallpaper GGenerator</p>
+    </footer>
+</body>
+</html>
