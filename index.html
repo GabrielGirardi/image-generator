@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./javascript/generator.js"></script>
-    <script src="./javascript/time.js"></script>
+    <script src="./javascript/partials/components.js"></script>
     <script src="./javascript/base.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -18,25 +19,22 @@
 </head>
 <body>
     <header class="flex justify-between center">
-      <nav class="navigation">
+      <nav class="navigation" id="navigation">
           <ul class="nav-options flex center">
-              <li class="n-option">
-                <a href="#">
-                  <img src="./assets/icons/home.svg" alt="Voltar para a home" title="Voltar para a home" width="32" height="32"/>
-                </a>
-              </li>
-              <li class="n-option">
-                <a href="#">
-                  <img src="./assets/icons/files.svg" alt="Arquivos" title="Arquivos" width="32" height="32"/>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <img src="./assets/icons/heart.svg" alt="Favoritos" title="Favoritos" width="32" height="32"/>
+              <li v-for="option in options">
+                <a b-bind:href="option.optionHref">
+                    <img 
+                      v-bind:src="option.optionIcon"
+                      v-bind:title="option.optionTitle"
+                      v-bind:alt="option.optionAlt"
+                      v-bind:width="iconWidth"
+                      v-bind:height="iconHeight"
+                    />
                 </a>
               </li>
           </ul>
       </nav>
+
       <div class="logo flex center justify-center">
         <h1 class="flex center justify-center">
           <img src="./assets/default/logo-site.svg" alt="Logo GGenerator" width="46" height="46"/>
