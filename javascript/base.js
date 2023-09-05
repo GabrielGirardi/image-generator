@@ -1,7 +1,7 @@
 $(document).ready(function() {
-    let suggestImages = $('.suggest.results .result-item ').find('img');
+    let suggestImages = $('.suggestion.results .result-item ').find('img');
 
-    $('.suggest.results .result-item').on('click', function () {
+    $('.suggestion.results .result-item').on('click', function () {
         let image = $(this).find('img').attr('src');
 
         Swal.fire({

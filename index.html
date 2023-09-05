@@ -7,6 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./javascript/generator.js"></script>
     <script src="./javascript/partials/components.js"></script>
+    <script src="./javascript/partials/props.js"></script>
     <script src="./javascript/base.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.all.min.js"></script>
@@ -18,11 +19,11 @@
     <title>Wall GGenerator</title>
 </head>
 <body>
-    <header class="flex justify-between center">
+    <header class="flex justify-between center" id="header">
       <nav class="navigation" id="navigation">
           <ul class="nav-options flex center">
               <li v-for="option in options">
-                <a b-bind:href="option.optionHref">
+                <a v-bind:href="option.optionHref" target="_blank">
                     <img 
                       v-bind:src="option.optionIcon"
                       v-bind:title="option.optionTitle"
@@ -38,7 +39,7 @@
       <div class="logo flex center justify-center">
         <h1 class="flex center justify-center">
           <img src="./assets/default/logo-site.svg" alt="Logo GGenerator" width="46" height="46"/>
-          <span>WGGenerator</span>
+          <span>{{ title }}</span>
         </h1>
       </div>
       <div class="search-container flex center justify-center">
@@ -49,41 +50,21 @@
       </div>
     </header>
       
-    <main>
-      <section class="suggest results">
+    <main id="content">
+      <section class="suggestion results">
         <h2>Sugestões</h2>
-        <div class="results-grid">
-          <div class="result-item">
-            <img src="./assets/wallpapers/bg-1.jpg" alt="Wallpaper 1"/>
-          </div>
-          <div class="result-item">
-            <img src="./assets/wallpapers/bg-2.jpg" alt="Wallpaper 2"/>
-          </div>
-          <div class="result-item">
-            <img src="./assets/wallpapers/bg-3.jpg" alt="Wallpaper 3"/>
-          </div>
-          <div class="result-item">
-            <img src="./assets/wallpapers/bg-4.jpg" alt="Wallpaper 3"/>
-          </div>
-          <div class="result-item">
-            <img src="./assets/wallpapers/bg-5.jpg" alt="Wallpaper 3"/>
-          </div>
-          <div class="result-item">
-            <img src="./assets/wallpapers/bg-6.jpg" alt="Wallpaper 3"/>
-          </div>
-          <div class="result-item">
-            <img src="./assets/wallpapers/bg-7.jpg" alt="Wallpaper 3"/>
-          </div>
-          <div class="result-item">
-            <img src="./assets/wallpapers/bg-8.jpg" alt="Wallpaper 3"/>
-          </div>
-          <div class="result-item">
-            <img src="./assets/wallpapers/bg-9.png" alt="Wallpaper 3"/>
-          </div>
-          <div class="result-item">
-            <img src="./assets/wallpapers/bg-10.png" alt="Wallpaper 3"/>
-          </div>
-        </div>
+        <ul class="results-grid" id="suggestion">
+          <li 
+            class="result-item"
+            v-for="suggestion in suggestions">
+            <img 
+              v-bind:class="suggestion.className"
+              v-bind:src="suggestion.imageSrc"
+              v-bind:title="suggestion.title"
+              v-bind:alt="suggestion.alt"
+            />
+          </li>
+        </ul>
       </section>
 
       <section class="filters">

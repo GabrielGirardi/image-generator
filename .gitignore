@@ -1,1 +1,4 @@
 .vercel
+.sass-cache
+.ideia
+node_modules
