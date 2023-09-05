@@ -139,6 +139,7 @@ header nav.navigation ul.nav-options li {
   justify-content: center;
   width: 32px;
   height: 32px;
+  cursor: pointer;
 }
 header nav.navigation ul.nav-options li a {
   display: flex;

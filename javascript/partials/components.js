@@ -1,8 +1,8 @@
 $(document).ready(function () {
     var navigation = new Vue({
-        el: '#navigation',
+        el: '#header',
         data: {
-            message: '',
+            title: 'WGGenerator',
             options: [
                 {
                     optionName: 'Home',
@@ -27,7 +27,7 @@ $(document).ready(function () {
                 }
             ],
             iconWidth: 32,
-            iconHeight: 32
-        }
-    })
+            iconHeight: 32,
+        },
+    });
 });
