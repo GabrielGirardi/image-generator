@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./javascript/generator.js"></script>
+    <script src="./javascript/partials/header.js"></script>
     <script src="./javascript/partials/components.js"></script>
-    <script src="./javascript/partials/props.js"></script>
     <script src="./javascript/base.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.all.min.js"></script>
@@ -67,28 +67,29 @@
         </ul>
       </section>
 
-      <section class="filters">
+      <section class="filters" id="filters-content">
         <h2>Filtros</h2>
         <ul class="filters-list">
-          <li class="filter">Dispositivo</li>
-          <li class="filter">Tamanho</li>
-          <li class="filter">Escolhas dos editores</li>
-          <li class="filter">Tipo</li>
-          <li class="filter">Cor</li>
-          <li class="filter">Permitir conteúdo explícito</li>
+          <li
+            v-for="filter in filters"
+            v-bind:class="filter.className + ' ' + globalFilterClass">
+              <span>{{ filter.filterName }}</span>
+          </li>
       </section>
       
       <section class="category">
         <h2>Explore por categorias</h2>
         <ul>
-          <li><span>Carros</span></li>
-          <li><span>Universo</span></li>
-          <li><span>Paisagem</span></li>
-          <li><span>Mar</span></li>
-          <li><span>Moto</span></li>
-          <li><span>Cachorro</span></li>
-          <li><span>Naruto</span></li>
-          <li><span>Anime</span></li>
+          <li
+            v-for="category in categories"
+            v-bind:class="category.categoryClass">
+            <span>{{ category.categoryName }}</span>
+            <img  
+              v-bind:src="category.categoryIllustration"
+              v-bind:title="category.categoryIllustrationTitle"
+              v-bind:alt="category.categoryIllustrationAlt"
+            />
+          </li>
         </ul>
       </section>
       
