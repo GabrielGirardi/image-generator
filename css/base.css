@@ -256,23 +256,51 @@ main section.filters .filters-list .filter:hover {
 main section.category ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2px;
   margin-bottom: 1rem;
 }
 main section.category ul li {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: fit-content;
-  height: 32px;
-  padding: 8px;
-  background: var(--color-gray-100);
-  border-radius: 6px;
-  transition: all 0.3s;
+  justify-content: center;
+  position: relative;
+  width: 8%;
+  height: 300px;
+  border: 1px solid transparent;
+  transition: all 1s;
 }
 main section.category ul li:hover {
+  width: 10%;
   cursor: pointer;
-  background: var(--color-gray-200);
+  border: 1px solid var(--color-primary);
+}
+main section.category ul li:hover span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 14px;
+  border-radius: 3px;
+  padding: 1rem;
+}
+main section.category ul li span {
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 1s;
+}
+main section.category ul li img {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+  max-height: 300px;
+  object-fit: cover;
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=base.css.map */
